@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_900">#004d40</color>
+    <color name="teal_700">#00796b</color>
+    <color name="teal_400">#26a69a</color>
+    <color name="teal_50">#e0f2f1</color>
+
+    <color name="green_900">#1b5e20</color>
+    <color name="green_700">#388e3c</color>
+    <color name="green_400">#66bb6a</color>
+    <color name="green_50">#e8f5e9</color>
+
+    <color name="deepOrange_700">#e64a19</color>
+    <color name="deepOrange_900">#bf360c</color>
+
+    <color name="grey_50">#fafafa</color>
+    <color name="grey_200">#eeeeee</color>
+    <color name="grey_400">#bdbdbd</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+</resources>
