@@ -2,10 +2,19 @@
     <string name="app_name">BudgetBuddy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="entry_start_date">Entry Start Date</string>
+    <string name="entry_frequency">Entry Frequency:</string>
+    <string name="btn_text_save">Save</string>
 
     <string-array name="entry_type">
-        <item>Needs Type Expense</item>
-        <item>Wants Type Expense</item>
-        <item>Source of Income</item>
+        <item>Expense: Need</item>
+        <item>Expense: Want</item>
+        <item>New Income</item>
+    </string-array>
+    <string-array name="frequency_types">
+        <item>One-Time</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
     </string-array>
 </resources>

@@ -75,16 +75,111 @@
                     android:textSize="@dimen/edit_text_text_size" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.dev.materialspinner.MaterialSpinner
-                android:id="@+id/spinner_entry_type"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_date"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey_50"
+                android:layout_marginTop="@dimen/add_screen_til_marginTop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_entry_amount"
+                app:layout_constraintTop_toBottomOf="@+id/til_entry_amount">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/entry_start_date"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/green_700"
+                    android:textSize="@dimen/edit_text_text_size" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--END-->
+            <TextView
+                android:id="@+id/tv_spinner_frequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entry_frequency"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_date"
+            />
+            <Spinner
+                android:id="@+id/spinner_frequency"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="300dp"
+                android:layout_height="?attr/dropdownListPreferredItemHeight"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/spinner_bg"
+                android:dropDownWidth="300dp"
+                android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+                android:paddingRight="14dp"
+                android:popupBackground="@android:color/white"
+                android:popupElevation="3dp"
+                android:stateListAnimator="@drawable/spinner_sla"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_spinner_frequency">
+
+            </Spinner>
+            <TextView
+                android:id="@+id/tv_spinner_entry_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Entry Type:"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_frequency">
                 >
-            </com.dev.materialspinner.MaterialSpinner>
+            </TextView>
+            <Spinner
+                android:id="@+id/spinner_entry_type"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="300dp"
+                android:layout_height="?attr/dropdownListPreferredItemHeight"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/spinner_bg"
+                android:dropDownWidth="300dp"
+                android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+                android:paddingRight="14dp"
+                android:popupBackground="@android:color/white"
+                android:popupElevation="3dp"
+                android:stateListAnimator="@drawable/spinner_sla"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_spinner_entry_type">
+
+            </Spinner>
+            
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/add_screen_btn_save_marginTop"
+                android:background="@drawable/shape_button_rounded"
+                android:gravity="center"
+                android:paddingTop="@dimen/add_screen_btn_save_paddingTopBottom"
+                android:paddingBottom="@dimen/add_screen_btn_save_paddingTopBottom"
+                android:text="@string/btn_text_save"
+                android:textColor="@color/white"
+                android:textSize="@dimen/btn_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinner_entry_type"></Button>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
