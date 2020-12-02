@@ -1,11 +1,14 @@
 package edu.rit.cmp5987.budgetbuddy
 
 import android.graphics.Color
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import edu.rit.cmp5987.budgetbuddy.data.Transaction
+import edu.rit.cmp5987.budgetbuddy.fragments.TransactionListFragmentDirections
 import kotlinx.android.synthetic.main.transaction_row.view.*
 import java.util.*
 
@@ -55,6 +58,15 @@ class TransactionListAdapter: RecyclerView.Adapter<TransactionListAdapter.MyView
         holder.itemView.transaction_date_tv.text =  currentMonth + " " + currentItem.startDay.toString()
         holder.itemView.transaction_type_tv.text = currentItem.type
 
+
+        ///handle click to update
+        holder.itemView.rowTransactionLayout.setOnClickListener{
+            //pass tranaction object to update the fragment
+            val action = TransactionListFragmentDirections.actionTransactionListFragmentToUpdateTransactionFragment(currentItem)
+            //when item is selected, pass the current Item from the list fragment to the item fragment
+            holder.itemView.findNavController().navigate(action)
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -63,5 +75,9 @@ class TransactionListAdapter: RecyclerView.Adapter<TransactionListAdapter.MyView
     fun setData(transaction: List<Transaction>){
         this.transactionList = transaction
         notifyDataSetChanged()
+    }
+    private fun inputCheck(name: String, amount: String, date: String): Boolean{
+        //ensure fields are filled
+        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(amount) && TextUtils.isEmpty(date))
     }
 }

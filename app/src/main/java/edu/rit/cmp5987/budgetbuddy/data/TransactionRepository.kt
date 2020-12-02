@@ -8,4 +8,7 @@ class TransactionRepository(private val transactionDao: TransactionDao){
     suspend fun addTransaction(transaction: Transaction){
         transactionDao.addTransaction(transaction)
     }
+    suspend fun updateTransaction(transaction: Transaction){
+        transactionDao.updateTransaction(transaction)
+    }
 }

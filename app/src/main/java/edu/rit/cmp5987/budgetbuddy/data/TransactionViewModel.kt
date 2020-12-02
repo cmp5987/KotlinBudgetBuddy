@@ -24,4 +24,9 @@ class TransactionViewModel(application: Application): AndroidViewModel(applicati
             repository.addTransaction(transaction)
         }
     }
+    fun updateTransaction(transaction: Transaction){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateTransaction(transaction)
+        }
+    }
 }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_transactionListFragment_to_addTransactionFragment"
             app:destination="@id/addTransactionFragment" />
+        <action
+            android:id="@+id/action_transactionListFragment_to_updateTransactionFragment"
+            app:destination="@id/updateTransactionFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTransactionFragment"
@@ -22,5 +25,17 @@
         <action
             android:id="@+id/action_addTransactionFragment_to_transactionListFragment"
             app:destination="@id/transactionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateTransactionFragment"
+        android:name="edu.rit.cmp5987.budgetbuddy.fragments.UpdateTransactionFragment"
+        android:label="fragment_update_transaction"
+        tools:layout="@layout/fragment_update_transaction" >
+        <action
+            android:id="@+id/action_updateTransactionFragment_to_transactionListFragment"
+            app:destination="@id/transactionListFragment" />
+        <argument
+            android:name="currentTransaction"
+            app:argType="edu.rit.cmp5987.budgetbuddy.data.Transaction" />
     </fragment>
 </navigation>
