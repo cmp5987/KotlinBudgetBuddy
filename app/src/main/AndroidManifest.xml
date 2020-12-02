@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".EditEntryActivity" android:screenOrientation="portrait" android:label="Add an Entry" android:theme="@style/CustomNoActionBarTheme"></activity>
-        <activity android:name=".MainActivity"
+     <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
