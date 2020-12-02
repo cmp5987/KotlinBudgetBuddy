@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/transactionListFragment"
         android:name="edu.rit.cmp5987.budgetbuddy.fragments.TransactionListFragment"
-        android:label="BudgetBuddy"
-        tools:layout="@layout/fragment_transaction_list" >
+        android:label="Monthly Transactions"
+        tools:layout="@layout/fragment_transaction_list">
         <action
             android:id="@+id/action_transactionListFragment_to_addTransactionFragment"
             app:destination="@id/addTransactionFragment" />
@@ -29,8 +29,8 @@
     <fragment
         android:id="@+id/updateTransactionFragment"
         android:name="edu.rit.cmp5987.budgetbuddy.fragments.UpdateTransactionFragment"
-        android:label="fragment_update_transaction"
-        tools:layout="@layout/fragment_update_transaction" >
+        android:label="Update Entry"
+        tools:layout="@layout/fragment_update_transaction">
         <action
             android:id="@+id/action_updateTransactionFragment_to_transactionListFragment"
             app:destination="@id/transactionListFragment" />

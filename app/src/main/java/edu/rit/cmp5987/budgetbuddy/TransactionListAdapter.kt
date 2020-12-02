@@ -31,6 +31,7 @@ class TransactionListAdapter: RecyclerView.Adapter<TransactionListAdapter.MyView
     override fun onBindViewHolder(holder: TransactionListAdapter.MyViewHolder, position: Int) {
         val currentItem = transactionList[position]
         val cal = Calendar.getInstance()
+        //we match with the current month rather than using the item because if it is passed here it might be a monthly repeated item with a different startMonth
         val currentMonth = monthList[cal.get(Calendar.MONTH)]
 
         when(currentItem.type){
