@@ -12,6 +12,9 @@ interface TransactionDao {
     @Update
     suspend fun updateTransaction(transaction: Transaction)
 
+    @Delete
+    suspend fun deleteTransaction(transaction: Transaction)
+
     @Query("SELECT * FROM transaction_table ORDER BY startDay DESC")
     fun readAllData(): LiveData<List<Transaction>>
 

@@ -1,12 +1,13 @@
 package edu.rit.cmp5987.budgetbuddy.fragments
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -100,6 +101,8 @@ class UpdateTransactionFragment : Fragment() {
             updateItem()
         }
 
+        setHasOptionsMenu(true)
+
         return view
     }
     private fun updateItem(){
@@ -151,5 +154,36 @@ class UpdateTransactionFragment : Fragment() {
             }
         })
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
+        //super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.delete_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_delete){
+            deleteTransaction()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    private fun deleteTransaction(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Delete Entry?")
+        builder.setMessage("Are you sure you wish to delete: ${args.currentTransaction.name}")
+        builder.setPositiveButton("Delete") { dialog, which ->
+            mTransactionViewModel.deleteTransaction(args.currentTransaction)
+            Toast.makeText(requireContext(), "Successfully removed: ${args.currentTransaction.name}", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_updateTransactionFragment_to_transactionListFragment)
+        }
+        builder.setNegativeButton(android.R.string.no) { dialog, which ->
+            Toast.makeText(requireContext(),
+                android.R.string.no, Toast.LENGTH_SHORT).show()
+        }
+        val alertDialog = builder.create()
+        alertDialog.show()
+        val button = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+        with(button) {
+            setBackgroundColor(Color.parseColor("#00796b"))
+            setTextColor(Color.WHITE)
+        }
+    }
 }
